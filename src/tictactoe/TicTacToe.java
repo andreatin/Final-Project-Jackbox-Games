@@ -8,15 +8,18 @@ public class TicTacToe {
     private char player2 = 'o';
     private boolean computerEnabler = false;
     
+    // Enables computer
     public void enableComputer() {
         computerEnabler = true;
     }
 
+    // Sets the new player symbols
     public void setPlayerChars(char p1, char p2) {
         this.player1 = p1;
         this.player2 = p2;
     }
 
+    // Plays the game
     public void playTTT() {
         Computer quincy = new Computer();
         int totalTurns = 0;
@@ -28,7 +31,7 @@ public class TicTacToe {
         
         System.out.println(display(game));
 
-        // Plays through game
+        // Gameplay
         while (!winCondition(game)) {
             int row;
             int column;
@@ -52,7 +55,8 @@ public class TicTacToe {
             // Ends game if player 1 won
             if (winCondition(game))
                 break;
-
+            
+            //Ends game if no winners
             if (totalTurns == 9) {
                 System.out.println("No Winner\nCondition: Tie");
                 break;
@@ -74,6 +78,7 @@ public class TicTacToe {
                 game[row][column] = player2;
             }
             else {
+                // 'Computer's' choice
                 switch (quincy.getComputerSelection(game)) {
                     case 0:
                         game[0][0] = player2;
@@ -121,10 +126,6 @@ public class TicTacToe {
         }
 
         return p;
-    }
-
-    private int getComputerPlot() {
-        return -1;
     }
 
     // Determines whether the resulting move 
