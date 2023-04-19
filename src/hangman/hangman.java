@@ -21,7 +21,6 @@ public class hangman
 
         //random generator function that selects a word from the table
         String selectedWord = wordSelecter(wordTable);
-        System.out.println(selectedWord);
         
         //setting up board and actual gameplay method
         gameSetup(selectedWord);
