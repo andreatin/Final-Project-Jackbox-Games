@@ -13,14 +13,22 @@ public class hangman
 
     public static void main(String[] args)
     {
+        //initializing a hashtable with the amount of words in the txt file
         MyHashtable wordTable = new MyHashtable(55900);
+        
+        //fills table with words and corresponding key
         wordTable = fillTable();
+
+        //random generator function that selects a word from the table
         String selectedWord = wordSelecter(wordTable);
         System.out.println(selectedWord);
+        
+        //setting up board and actual gameplay method
         gameSetup(selectedWord);
         gamePlay(selectedWord);
     }
  
+    //method used to fill the hashtable with words from a txt file 
     public static MyHashtable fillTable() 
     {
         MyHashtable wordTable = new MyHashtable(55900);
@@ -32,6 +40,7 @@ public class hangman
        
             int key = 1; 
 
+            //while loop splits the lines into individual words to be put into the table
             while(myReader.hasNext())
             {
                 String words = myReader.nextLine();
@@ -49,6 +58,7 @@ public class hangman
         return wordTable;
     }
 
+    //used for randomly selecting a key from the table to use that word for the game
     public static String wordSelecter(MyHashtable table)
     {
         Object wordObject;
@@ -61,17 +71,16 @@ public class hangman
         return word;
     }
 
+    //sets up the board with the amount of letter spaces 
     public static void gameSetup(String selectedWord)
     {
-        List<Character> secretWordList = new ArrayList<Character>();
-        
         for(int i = 0; i<selectedWord.length(); i++)
         {
-            secretWordList.add(selectedWord.charAt(i));
             System.out.print("_ ");
         }
     }
 
+    //recieves input from the user and adds the players input to a list of chars for further evaluation
     public static boolean getPlayerGuess(String selectedWord, List<Character> playerGuesses) 
     {
         Scanner keyboard = new Scanner(System.in);
@@ -80,9 +89,11 @@ public class hangman
         String letterGuess = keyboard.nextLine();
         playerGuesses.add(letterGuess.charAt(0));
         
+        //returns the boolean result of the statement evaluating if the input letter is in the secret word
         return selectedWord.contains(letterGuess);
       }
 
+      //displays if the user input matches a letter in the secret word to be guessed 
     public static boolean printWordState(String selectedWord, List<Character> playerGuesses) 
     {
         int correctCount = 0;
@@ -100,9 +111,11 @@ public class hangman
         }
         System.out.println();
           
+        //returns the boolean value of the result of if the amount of correct letters is equal to the length of the correct word
         return (selectedWord.length() == correctCount);
     }
 
+    //method used to display the hangman when the user guessed incorrectly
     public static void printHangedMan(int wrongCount) 
     {
         System.out.println("");
@@ -141,6 +154,7 @@ public class hangman
         }
     
   
+        //play method that runs the other dependent guessing and evaluating methods
     public static void gamePlay(String selectedWord)
     {
         List<Character> playerGuesses = new ArrayList<>();
@@ -148,6 +162,7 @@ public class hangman
         Scanner keyboard = new Scanner(System.in);
         while(true) {
 
+            //determines if the user lost and prints the secret word
             if (wrongCount >= 6) {
               System.out.println("You lose!");
               System.out.println("The word was: " + selectedWord);
@@ -155,22 +170,37 @@ public class hangman
               break;
             }
 
+            //runs if the guessed letter is not in the secret word 
             System.out.println("");
             if (!getPlayerGuess(selectedWord, playerGuesses)) {
               wrongCount++;
               System.out.println("That letter is not in the word!");
               System.out.print("You have tried these letters: " + playerGuesses);
               System.out.println("");
+              
+              //prints the empty lines and the letters arlready guessed along with the hangman
               printWordState(selectedWord, playerGuesses);
               printHangedMan(wrongCount);
             }
-            
-            if(printWordState(selectedWord, playerGuesses)) {
+
+            //prints when/if the user guesses the word correctly
+            if(printWordState(selectedWord, playerGuesses)) 
+            {
                 System.out.println("");
                 System.out.println("");
                 System.out.println("You win!");
                 System.out.println("Congratulations!!");
+                System.out.println("");
+                System.out.println("\\\\     //");
+                System.out.println(" \\\\   //");
+                System.out.println("  \\\\ //");
+                System.out.println("   {*}");
+                System.out.println("");
                 break;
+            }
+            else
+            {
+                System.out.println("The letters you have tried are: " + playerGuesses);
             }
         }
             
