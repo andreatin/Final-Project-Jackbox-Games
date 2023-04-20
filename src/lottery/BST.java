@@ -41,7 +41,7 @@ public class BST implements BSTInterface {
         else
             System.out.println("You did not have luck, try again next time.");
 
-        //lottery.makeEmpty();
+        lottery.makeEmpty();
 
     }
 

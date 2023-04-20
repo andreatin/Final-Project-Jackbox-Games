@@ -12,7 +12,7 @@ public class MainMenu {
     {
         Scanner keyboard = new Scanner(System.in);
         int userInput = 0;
-        boolean playAgain;
+        int playAgain;
         System.out.println("Welcome to Jackbox Games!");
 
         do{
@@ -34,10 +34,10 @@ public class MainMenu {
                     System.out.println("Incorrect number entered - that game does not exist");
             }
 
-            System.out.println("Would you like to return to menu to select a game? (enter true or false)");
-            playAgain = keyboard.nextBoolean();
+            System.out.println("Would you like to return to menu to select a game? (enter 1 to continue or 0 to exit)");
+            playAgain = keyboard.nextInt();
             
-        }while(playAgain);
+        }while(playAgain == 1);
 
         System.out.println("Thank you for playing Jackbox games!");
         System.out.println("We hope to see you soon!");
