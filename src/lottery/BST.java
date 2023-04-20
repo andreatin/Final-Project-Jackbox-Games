@@ -32,7 +32,7 @@ public class BST implements BSTInterface {
         }
 
         // Ask the user for the lottery number
-        System.out.println("What number do you want to play with?");
+        System.out.println("Enter the number you wish the play");
         int lotteryNumber = scan.nextInt();
 
         // Check if the user won (if the input is not in the tree)
@@ -41,7 +41,7 @@ public class BST implements BSTInterface {
         else
             System.out.println("You did not have luck, try again next time.");
 
-        lottery.makeEmpty();
+        //lottery.makeEmpty();
 
     }
 
