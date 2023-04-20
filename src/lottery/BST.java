@@ -12,7 +12,7 @@ public class BST implements BSTInterface {
         Random random = new Random();
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("How many winning numbers do you want to be?");
+        System.out.println("How many winning numbers do you want there to be?");
         int numberOfWinnerNumbers = scan.nextInt();
 
         // Fill the tree with numbers 0 to 99
