@@ -2,6 +2,7 @@ package tictactoe;
 
 import java.util.Scanner;
 
+//driver class for the tictactoe game. This is the class that is called from the main menu
 public class TicTacToeDriver {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

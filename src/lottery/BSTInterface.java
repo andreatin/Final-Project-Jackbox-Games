@@ -1,5 +1,6 @@
 package lottery;
 
+//serves as the interface for the BST class defined in this package
 interface BSTInterface {
 
     public boolean isEmpty(); // returns true if the BST is empty, false otherwise

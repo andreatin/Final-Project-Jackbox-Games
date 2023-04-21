@@ -1,5 +1,7 @@
 package hangman.List;
 
+//this file serves as the interface for the list structures 
+//with the desired methods for that class
 public interface ListInterface {
 
     public boolean isEmpty();

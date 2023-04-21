@@ -1,6 +1,6 @@
 package lottery;
 
-import java.util.Scanner;
+//driver class for the lottery game that runs the game
 
 public class Lottery {
     public static void main(String[] args) {

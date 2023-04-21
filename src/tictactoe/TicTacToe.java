@@ -2,6 +2,7 @@ package tictactoe;
 
 import java.util.Scanner;
 
+//holds all the logic for playing the tictactoe game, printing the board, determining moves, etc.
 public class TicTacToe {
 
     private char player1 = 'x';

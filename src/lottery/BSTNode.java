@@ -1,5 +1,6 @@
 package lottery;
 
+//this class defines the nodes of the BST
 public class BSTNode
 
 {

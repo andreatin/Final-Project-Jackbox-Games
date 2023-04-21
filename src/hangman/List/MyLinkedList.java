@@ -1,5 +1,6 @@
 package hangman.List;
 
+//this is the main class defining the MyLinkedList type and its methods and attributes 
 public class MyLinkedList implements ListInterface {
     protected int size;
     protected Node head;
@@ -15,6 +16,7 @@ public class MyLinkedList implements ListInterface {
         }
     }
 
+    //function that gets the input from the user 
     public Object get(int index) {
 
         if (index >= 0 && index < size) {
@@ -30,6 +32,7 @@ public class MyLinkedList implements ListInterface {
             throw new ListIndexOutOfBoundsException("Index " + index + " out of bounds in get()");
     }
 
+    //returns the object as a string when called
     public String toString() {
         String s = "(";
         Node current = head;
@@ -43,10 +46,12 @@ public class MyLinkedList implements ListInterface {
         return s;
     }
 
+    //returns the size of the list
     public int size() {
         return size;
     }
 
+    //checks if the list is empty
     public boolean isEmpty() {
         if (size == 0)
             return true;
@@ -54,6 +59,7 @@ public class MyLinkedList implements ListInterface {
             return false;
     }
 
+    //adds an object to the list 
     public void add(int index, Object o) {
         if (index >=0 && index <= size) {
             if (index == 0) {
@@ -90,6 +96,7 @@ public class MyLinkedList implements ListInterface {
 
     }
 
+    //removes elements from MyLinkedList
     public void remove(int index) {
         if (index >= 0 && index < size) {
             if (index == 0) {
@@ -122,12 +129,14 @@ public class MyLinkedList implements ListInterface {
         }
     }
 
+    //empties the list 
     public void removeAll() {
         size = 0;
         head = null;
         tail = null;
     }
 
+    //algorithm to search for an element of the list
     public int find(Object o) {
         Node current = head;
         int i = -1;
