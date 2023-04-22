@@ -28,11 +28,10 @@ public class BST implements BSTInterface {
                 lottery.delete(randomNumber);
             else
                 lottery.delete(randomNumber - 1);
-            System.out.println("Number " + randomNumber + " is a winning number (testing purposes).");
         }
 
         // Ask the user for the lottery number
-        System.out.println("Enter the number you wish the play");
+        System.out.println("Enter the number you wish to play (0 to 99)");
         int lotteryNumber = scan.nextInt();
 
         // Check if the user won (if the input is not in the tree)
